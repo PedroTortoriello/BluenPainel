@@ -102,20 +102,21 @@ export default function ScheduleCalendar() {
           timeslots={1}
           popup
           onSelectEvent={handleOpenEvent}
-          eventPropGetter={(event) => {
-  const baseClass =
-    event.type === "livre"
-      ? "rbc-event-available"
-      : "rbc-event-ocupado"
+         eventPropGetter={(event) => {
+  const isLivre = event.type === "livre";
 
   return {
-    className: baseClass,
     style: {
+      backgroundColor: isLivre ? "#4CAF50" : "#F44336", // verde / vermelho
+      color: "#fff",
       borderRadius: "6px",
       boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+      border: "none",
+      padding: "4px 8px",
     },
-  }
+  };
 }}
+
 
         />
       </div>
